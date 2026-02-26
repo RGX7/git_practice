@@ -29,7 +29,27 @@ let arrays = {
         "Go to bed 30 minutes earlier tonight",
         "Listen to your favorite song and really focus",
         "Clean out your wallet or bag",
-        "Smile at a stranger"
+        "Smile at a stranger",
+        "Set one goal for tomorrow",
+        "Turn off notifications for 2 hours",
+        "Try a new coffee shop or cafe",
+        "Write a thank you note to someone",
+        "Do a 5-minute desk cleanup",
+        "Take the stairs instead of the elevator next time",
+        "Listen to an album all the way through",
+        "Watch a TED talk",
+        "Sketch or doodle for 10 minutes",
+        "Go for a bike ride",
+        "Read an article about something new",
+        "Do a digital detox for the evening",
+        "Listen to a song for your current mood",
+        "Try a new walking route in your neighborhood",
+        "Spend 15 minutes planning your week",
+        "Watch the sunset or sunrise",
+        "Practe a skill you want to improve for 15 minutes",
+        "Rearrange your workspace",
+        "Take a cold shower",
+        "Ask someone about their day and really listen"
     ],
     phrase: [
         'img/mgi-1.jpg',
@@ -136,3 +156,19 @@ let arrays = {
         "Sparkling Water"
     ]
 };
+
+let randomNum = (Math.floor(Math.random()*50));
+
+let behavior = () => {
+    console.log(arrays.behavioral_cue[randomNum])
+}
+let phrase = () => {
+    console.log(arrays.phrase[randomNum])
+}
+let coffee = () => {
+    console.log(arrays.coffee[randomNum])
+}
+
+behavior();
+phrase();
+coffee();
