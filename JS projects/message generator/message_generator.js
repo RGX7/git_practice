@@ -157,18 +157,23 @@ let arrays = {
     ]
 };
 
-let randomNum = (Math.floor(Math.random()*50));
+//Get references to HTML elements
+const cueElement = document.getElementById('cue');
+const coffeeElement = document.getElementById('coffee');
+const imgElement = document.getElementById('img');
+const button = document.getElementById('btn');
 
-let behavior = () => {
-    console.log(arrays.behavioral_cue[randomNum])
-}
-let phrase = () => {
-    console.log(arrays.phrase[randomNum])
-}
-let coffee = () => {
-    console.log(arrays.coffee[randomNum])
+//Generate a random message
+function generateMessage() {
+    let randomNum = (Math.floor(Math.random()*50));
+    //Update DOM elements
+    cueElement.textContent = arrays.behavioral_cue[randomNum];
+    coffeeElement.textContent = arrays.coffee[randomNum];
+    imgElement.src = arrays.phrase[randomNum];
 }
 
-behavior();
-phrase();
-coffee();
+//Add event listener to button  
+button.addEventListener('click', generateMessage);
+
+//Generate a random message on page load
+generateMessage();
