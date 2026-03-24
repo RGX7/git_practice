@@ -157,18 +157,57 @@ let arrays = {
     ]
 };
 
-let randomNum = (Math.floor(Math.random()*50));
+//Get references to HTML elements
+const cueElement = document.getElementById('cue');
+const coffeeElement = document.getElementById('coffee');
+const imgElement = document.getElementById('img');
+const button = document.getElementById('btn');
 
-let behavior = () => {
-    console.log(arrays.behavioral_cue[randomNum])
-}
-let phrase = () => {
-    console.log(arrays.phrase[randomNum])
-}
-let coffee = () => {
-    console.log(arrays.coffee[randomNum])
+//Generate a random message
+function generateMessage() {
+    let randomNum = (Math.floor(Math.random()*50));
+    //Update DOM elements
+    cueElement.textContent = arrays.behavioral_cue[randomNum];
+    coffeeElement.textContent = arrays.coffee[randomNum];
+    imgElement.src = arrays.phrase[randomNum];
 }
 
-behavior();
-phrase();
-coffee();
+//Add event listener to button  
+hideImage();
+button.addEventListener('click', generateMessage);
+button.addEventListener('click', changeBackgroundColor);
+button.addEventListener('click', changeButtonColor);
+button.addEventListener('click', showImage);
+
+//Generate a random color
+const randomRGB = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
+function getContrastColor(r, g, b) {
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 155 ? '#000000' : '#FFFFFF';
+};
+
+function changeBackgroundColor() {
+    let rgbColor = randomRGB();
+    const [r, g, b] = rgbColor.match(/\d+/g).map(Number);
+    document.body.style.backgroundColor = rgbColor;
+    document.body.style.color = getContrastColor(r,g,b);
+};
+
+function changeButtonColor() {
+    let rgbColor = randomRGB();
+    const [r, g, b] = rgbColor.match(/\d+/g).map(Number);
+    button.style.backgroundColor = rgbColor;
+    button.style.color = getContrastColor(r, g, b);
+};
+
+function hideImage() {
+    document.getElementById('img').style.display = "none";
+};
+function showImage() {
+    document.getElementById('img').style.display = "block";
+};
