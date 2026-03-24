@@ -173,7 +173,41 @@ function generateMessage() {
 }
 
 //Add event listener to button  
+hideImage();
 button.addEventListener('click', generateMessage);
+button.addEventListener('click', changeBackgroundColor);
+button.addEventListener('click', changeButtonColor);
+button.addEventListener('click', showImage);
 
-//Generate a random message on page load
-generateMessage();
+//Generate a random color
+const randomRGB = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
+function getContrastColor(r, g, b) {
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 155 ? '#000000' : '#FFFFFF';
+};
+
+function changeBackgroundColor() {
+    let rgbColor = randomRGB();
+    const [r, g, b] = rgbColor.match(/\d+/g).map(Number);
+    document.body.style.backgroundColor = rgbColor;
+    document.body.style.color = getContrastColor(r,g,b);
+};
+
+function changeButtonColor() {
+    let rgbColor = randomRGB();
+    const [r, g, b] = rgbColor.match(/\d+/g).map(Number);
+    button.style.backgroundColor = rgbColor;
+    button.style.color = getContrastColor(r, g, b);
+};
+
+function hideImage() {
+    document.getElementById('img').style.display = "none";
+};
+function showImage() {
+    document.getElementById('img').style.display = "block";
+};

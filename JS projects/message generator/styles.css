@@ -3,4 +3,73 @@ body {
     align-items: center;
     justify-items: center;
     text-align: center;
+    font-family: 'Heebo', sans-serif;
 }
+
+img {
+    max-width: 20rem;
+    object-fit: cover;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+@media screen and (max-width: 720px) {
+    /* Styles for tablets and larger */
+    section {
+        display: block;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    button {
+        font-size: 1rem;
+    }
+};
+@media screen and (min-width: 720px) {
+    /* Styles for tablets and larger */
+    #btn {
+        margin: 5rem;
+    }
+};
