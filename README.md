@@ -11,3 +11,9 @@ With this folder, I intend to not only expand my learning and programming skills
 
 ## Note
 If you happen to read this as a beginner, I'd love to know what you think and what could I possibly do to make these projects easier to understand.
+
+## Instructions per project
+<details>
+<summary>Message Generator</summary>
+For this project, you will build a message generator program. Every time a user runs the program, they should get a new randomized output. The message that it outputs should be made up of at least three different pieces of data. Take what you know about JavaScript syntax so far to build the program and customize it to your liking.
+</details>
